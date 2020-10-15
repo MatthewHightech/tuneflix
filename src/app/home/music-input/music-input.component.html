@@ -1,0 +1,14 @@
+
+
+<ion-button color="success" (click)="onPlaySong()"><ion-icon name="play-outline" slot="start"></ion-icon>Play</ion-button>
+<ion-button color="warning" (click)="onPauseSong()"><ion-icon name="pause-outline" slot="start"></ion-icon>Pause</ion-button>
+<br>
+<audio
+   controls
+   loop
+   crossorigin="anonymous"
+   id="audio"
+   src="../../../assets/jazz.mp3"
+   >
+</audio>
+
