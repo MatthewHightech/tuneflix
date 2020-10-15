@@ -1,25 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Feature } from './feature.model';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class HomeService {
-    rmsChanged: Subject<number> = new Subject<number>();
-    rms: number;  
+    featuresChanged: Subject<Feature> = new Subject<Feature>();
+    features: Feature;  
 
     constructor () {}
 
-
     // event triggered when a new rms value is generated
-    newRms(rmsIn: number) {
-        this.rms = rmsIn; 
-        //console.log("Service Rms: " + this.rms)
-        this.rmsChanged.next(this.rms); 
+    newFeature(featuresIn: Feature) {
+        // exporting features Object as observable
+        this.features = featuresIn; 
+        this.featuresChanged.next(this.features); 
     } // newRms
 
-    returnRms() {
-        return this.rms; 
-    }
 }

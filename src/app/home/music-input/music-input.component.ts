@@ -42,11 +42,13 @@ export class MusicInputComponent implements OnInit {
         "bufferSize": 2048,
         // Different audio features to calculate
         "featureExtractors": [
-            "rms"
+            "rms", 
+            "energy", 
+            "spectralCentroid"
         ], 
         // Calculates data and adds it to features everytime the callback runs (86x/sec)
         "callback": features => { 
-            this.service.newRms(features.rms);  
+            this.service.newFeature(features);  
         }
       });
   } // onAddSong

@@ -9,7 +9,7 @@ import { HomeService } from '../home.service';
 })
 export class MusicViewComponent implements OnInit {
 
-  private rmsSubscription: Subscription;
+  private featureSubscription: Subscription;
 
   constructor(protected service: HomeService) {}
 
@@ -17,8 +17,8 @@ export class MusicViewComponent implements OnInit {
     // subscription to changes on the rms value through HomeService
     const circle = document.getElementById("circle");
     let d: number = 1; 
-    this.rmsSubscription = this.service.rmsChanged.subscribe(newRms => {  
-      d = newRms*1000; 
+    this.featureSubscription = this.service.featuresChanged.subscribe(newFeature => {  
+      d = newFeature.rms*1000; 
       //console.log(d); 
       circle.style.width = d + "px";
       circle.style.height = d + "px";
