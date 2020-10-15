@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HomeService } from '../home.service';
-import { Subscription } from 'rxjs'; 
 
 @Component({
   selector: 'app-music-view',
@@ -8,14 +8,26 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./music-view.component.scss'],
 })
 export class MusicViewComponent implements OnInit {
-  rms: number;
+
   private rmsSubscription: Subscription;
 
-  constructor(private service: HomeService) {}
+  constructor(protected service: HomeService) {}
 
   ngOnInit() { 
-      this.rmsSubscription = this.service.rmsValue.subscribe(rmsValue => {
-          this.rms = rmsValue;
-      });
+    // subscription to changes on the rms value through HomeService
+    const circle = document.getElementById("circle");
+    let d: number = 1; 
+    this.rmsSubscription = this.service.rmsChanged.subscribe(newRms => {  
+      d = newRms*1000; 
+      //console.log(d); 
+      circle.style.width = d + "px";
+      circle.style.height = d + "px";
+    });
   } // ngOnInit
+
+
+
+
+  
+  
 }

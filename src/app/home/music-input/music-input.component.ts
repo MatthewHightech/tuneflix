@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Output, EventEmitter } from '@angular/core';
 import { HomeService } from '../home.service';
-import { Meyda } from 'meyda/dist/web/meyda.min.js'; 
 
 @Component({
   selector: 'app-music-input',
@@ -9,10 +9,11 @@ import { Meyda } from 'meyda/dist/web/meyda.min.js';
 })
 export class MusicInputComponent implements OnInit {
 
+  @Output() rmsEmitter = new EventEmitter<number>();
   private audioContext: AudioContext; 
   private source;
   private audioElement;
-  private analyzer;   
+  private analyzer; 
 
   constructor(private service: HomeService) { }
 
@@ -38,14 +39,14 @@ export class MusicInputComponent implements OnInit {
         // audio node
         "source": this.source,
         // how often to check the audio sample (44100/512 = 86 times a sec *average*)
-        "bufferSize": 512,
+        "bufferSize": 2048,
         // Different audio features to calculate
         "featureExtractors": [
             "rms"
         ], 
         // Calculates data and adds it to features everytime the callback runs (86x/sec)
-        "callback": features => {
-            features.rms = this.service.rmsValue;   
+        "callback": features => { 
+            this.service.newRms(features.rms);  
         }
       });
   } // onAddSong

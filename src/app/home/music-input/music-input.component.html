@@ -1,14 +1,17 @@
 
-
-<ion-button color="success" (click)="onPlaySong()"><ion-icon name="play-outline" slot="start"></ion-icon>Play</ion-button>
-<ion-button color="warning" (click)="onPauseSong()"><ion-icon name="pause-outline" slot="start"></ion-icon>Pause</ion-button>
-<br>
-<audio
-   controls
-   loop
-   crossorigin="anonymous"
-   id="audio"
-   src="../../../assets/jazz.mp3"
-   >
-</audio>
+<ion-row>
+   <ion-col size-md="6" offset-md="3">
+      <ion-button color="success" (click)="onPlaySong()"><ion-icon name="play-outline" slot="start"></ion-icon>Play</ion-button>
+      <ion-button color="success" (click)="onPauseSong()"><ion-icon name="pause-outline" slot="start"></ion-icon>Pause</ion-button>
+      <br>
+      <audio
+         controls
+         loop
+         crossorigin="anonymous"
+         id="audio"
+         src="../../../assets/jazz.mp3"
+         >
+      </audio>
+   </ion-col>
+</ion-row>
 

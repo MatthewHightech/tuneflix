@@ -1,0 +1,12 @@
+$main-color: #2dd36f;  
+
+#circle {
+    width: 100px;
+    height: 100px; 
+    border-radius: 50%;
+    background-color: $main-color; 
+}
+
+ion-col {
+    display: flex;
+}
