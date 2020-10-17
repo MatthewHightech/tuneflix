@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeService } from './home.service'
 
 @Component({
@@ -6,14 +6,11 @@ import { HomeService } from './home.service'
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
-  //rms: number; 
-  constructor() {}
-/*
-  onNewRms(rmsIn: number) {
-    console.log(rmsIn); 
-    this.rms = rmsIn; 
+export class HomePage implements OnInit {
+  
+  constructor(protected service: HomeService) {}
 
+  ngOnInit() {
+    this.service.musicType = "Rock"; 
   }
-*/
 }

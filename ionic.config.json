@@ -1,5 +1,7 @@
 {
   "name": "tuneflix",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

@@ -25,3 +25,8 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+.my-custom-class .action-sheet-group {
+    --background: #222428;
+    --color: white; 
+    --button-color: white; 
+  }

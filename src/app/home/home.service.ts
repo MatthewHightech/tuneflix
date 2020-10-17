@@ -8,7 +8,10 @@ import { Feature } from './feature.model';
 
 export class HomeService {
     featuresChanged: Subject<Feature> = new Subject<Feature>();
-    features: Feature;  
+    features: Feature; 
+    
+    musicType: string; 
+    
 
     constructor () {}
 

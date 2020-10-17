@@ -1,12 +1,35 @@
-$main-color: #2dd36f;  
+$main-color: #10e03d; 
+$dark-color: #222428;  
 
-#circle {
-    width: 100px;
-    height: 100px; 
+div {
     border-radius: 50%;
+    max-width: 300px;
+    max-height: 300px;
+    position: absolute;
+    transition: all .06s ease-in-out;
+}
+#circle1 {
+    width: 80px;
+    height: 80px; 
     background-color: $main-color; 
+    transform: scale(1);
+    z-index: 1;
 }
 
+#circle2 {
+    top: 15px; 
+    width: 60px;
+    height: 60px; 
+    background-color: $dark-color;
+    transform: scale(1); 
+    z-index: 2;
+}
+
+
+ion-row {
+    margin-top: 30%;
+}
 ion-col {
+    height: 300px;
     display: flex;
 }
