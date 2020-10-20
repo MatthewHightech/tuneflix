@@ -8,7 +8,7 @@ import { HomeService } from './home.service'
 })
 export class HomePage implements OnInit {
   
-  constructor(protected service: HomeService) {}
+  constructor(public service: HomeService) {}
 
   ngOnInit() {
     this.service.musicType = "Rock"; 
